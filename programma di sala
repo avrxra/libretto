@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libretto di Sala - Voci nel Tempo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* SETUP MOBILE REALMENTE VERTICALE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0a2342; /* Blu profondo della locandina come sfondo esterno */
+            font-family: 'Crimson Pro', serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        /* Il contenitore ora si adatta al telefono senza altezze bloccate */
+        .booklet-vertical {
+            width: 100%;
+            max-width: 480px; /* Larghezza tipica di uno smartphone */
+            background-color: #fcf8ec; /* Sfondo pergamena */
+            border-left: 6px solid #c5a059; /* Bordi laterali oro */
+            border-right: 6px solid #c5a059;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        /* SEZIONI DEL LIBRETTO (PAGINE IN VERTICALE) */
+        .page-section {
+            padding: 40px 25px;
+            border-bottom: 2px dashed #c5a059; /* Divisore elegante tra le sezioni */
+            position: relative;
+        }
+
+        .page-section:last-child {
+            border-bottom: none;
+        }
+
+        /* TITOLI BAROCCHI */
+        h1, h2, h3 {
+            color: #0a2342;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 { font-size: 36px; line-height: 1.2; margin: 15px 0; }
+        h2 { font-size: 24px; color: #c5a059; margin-bottom: 20px; border-bottom: 1px solid #c5a059; padding-bottom: 10px; }
+        h3 { font-size: 18px; margin-bottom: 10px; }
+
+        p { font-size: 18px; line-height: 1.6; margin-bottom: 15px; text-align: justify; }
+
+        /* COPERTINA SPECIFICA */
+        .cover {
+            text-align: center;
+            padding: 60px 25px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 80%);
+        }
+
+        /* PROGRAMMA DI SALA */
+        .program-list {
+            margin-top: 10px;
+        }
+
+        .program-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0d5b8;
+        }
+
+        .program-item:last-child { border-bottom: none; }
+
+        .track-number {
+            font-family: 'Cinzel', serif;
+            color: #c5a059;
+            font-weight: 700;
+            font-size: 18px;
+            min-width: 30px;
+        }
+
+        .track-details {
+            flex-grow: 1;
+        }
+
+        .track-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0a2342;
+            display: block;
+        }
+
+        .track-composer {
+            font-size: 15px;
+            font-style: italic;
+            color: #c5a059;
+        }
+
+        /* IMMAGINI CONFIGURATE PER MOBILE */
+        .img-fluid {
+            width: 100%;
+            height: auto;
+            border: 3px solid #c5a059;
+            margin: 15px 0;
+        }
+
+        .img-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #c5a059;
+            display: block;
+            margin: 0 auto 15px auto;
+            object-fit: cover;
+        }
+
+        /* BLOCCHI DI TESTO ED ELENCHI */
+        .card-box {
+            background: #fff;
+            border-left: 4px solid #0a2342;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .singers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding-left: 10px;
+        }
+
+        .singers-grid div {
+            font-size: 16px;
+            padding: 4px 0;
+            border-bottom: 1px dotted #dcd3bc;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 22px;
+            text-align: center;
+            color: #0a2342;
+            padding: 20px;
+            line-height: 1.4;
+        }
+
+        .footer-info {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #c5a059;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="booklet-vertical">
+
+        <section class="page-section">
+            <h2>Programma di Sala</h2>
+            <div class="program-list">
+                <div class="program-item">
+                    <div class="track-number">1</div>
+                    <div class="track-details">
+                        <span class="track-title">Ave Maria</span>
+                        <span class="track-composer">Jacob Arcadelt</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">2</div>
+                    <div class="track-details">
+                        <span class="track-title">Exultate Justi</span>
+                        <span class="track-composer">Lodovico da Viadana</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">3</div>
+                    <div class="track-details">
+                        <span class="track-title">Locus Iste</span>
+                        <span class="track-composer">Anton Bruckner</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">4</div>
+                    <div class="track-details">
+                        <span class="track-title">Il bianco e dolce cigno</span>
+                        <span class="track-composer">Jacob Arcadelt</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">5</div>
+                    <div class="track-details">
+                        <span class="track-title">Ubi caritas</span>
+                        <span class="track-composer">Ola Gjeilo</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">6</div>
+                    <div class="track-details">
+                        <span class="track-title">Matona mia cara</span>
+                        <span class="track-composer">Orlando di Lasso</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">7</div>
+                    <div class="track-details">
+                        <span class="track-title">O fili et filie</span>
+                        <span class="track-composer">Ivo Antognini</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">8</div>
+                    <div class="track-details">
+                        <span class="track-title">Pacem in terris</span>
+                        <span class="track-composer">Marco Frisina</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">9</div>
+                    <div class="track-details">
+                        <span class="track-title">Nearer, My God, to Thee</span>
+                        <span class="track-composer">Lowell Mason</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">10</div>
+                    <div class="track-details">
+                        <span class="track-title">Abballati</span>
+                        <span class="track-composer">Tradizionale Siciliano</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">11</div>
+                    <div class="track-details">
+                        <span class="track-title">Lullaby</span>
+                        <span class="track-composer">Billy Joel</span>
+                    </div>
+                </div>
+                <div class="program-item">
+                    <div class="track-number">12</div>
+                    <div class="track-details">
+                        <span class="track-title">Total Praise</span>
+                        <span class="track-composer">Richard Smallwood</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section cover">
+            <h3 style="color: #c5a059; letter-spacing: 3px;">Coro dei Cavalieri</h3>
+            <h1>VOCI NEL TEMPO</h1>
+            <p style="text-align: center; font-style: italic; font-size: 20px; color: #c5a059;">Un viaggio tra secoli di musica corale</p>
+            <div style="height: 2px; width: 60px; background: #c5a059; margin: 20px auto;"></div>
+            <p style="text-align: center; font-size: 16px;">
+                <strong>Maestro del Coro: Davide Calvo</strong><br>
+                Chiesa S. Sofia, Sortino (SR)<br>
+                28 Maggio 2026
+            </p>
+        </section>
+
+        <section class="page-section">
+            <h2>La Direzione</h2>
+            <img class="img-circle" src="http://googleusercontent.com/image_collection/image_retrieval/13132325731276807975" alt="Davide Calvo">
+            <h3>Davide Calvo</h3>
+            <p>Musicista di profonda sensibilità e rigore tecnico, il Maestro Calvo guida il Coro dei Cavalieri con l'obiettivo di esplorare le infinite sfumature della voce umana, curando con dedizione ogni dettaglio timbrico.</p>
+        </section>
+
+        <section class="page-section">
+            <h2>Il Coro dei Cavalieri</h2>
+            <div class="card-box">
+                <h3>Identità</h3>
+                <p>Un ensemble vocale che affonda le sue radici nella tradizione di Sortino, unendo cantori accomunati dalla passione per l'arte corale polifonica.</p>
+            </div>
+            <div class="card-box">
+                <h3>La Missione</h3>
+                <p>Portare la grande musica nei luoghi storici e sacri, valorizzando il patrimonio artistico e creando un ponte emotivo tra epoche storiche differenti.</p>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <h2>L'Antico e il Sacro</h2>
+            <p>Il concerto si apre con la perfezione formale del Rinascimento. L'<strong>Ave Maria</strong> di Arcadelt incanta per la sua purezza, mentre il madrigale <strong>Il bianco e dolce cigno</strong> rappresenta la vetta della poesia in musica.</p>
+            <p>Con l'energia dell'<strong>Exultate Justi</strong> di Viadana e l'ironia di Orlando di Lasso, si esplora il perfetto equilibrio tra sacro e profano.</p>
+        </section>
+
+        <section class="page-section">
+            <h2>Ottocento e Novecento</h2>
+            <p>Il romanticismo solenne di Anton Bruckner in <strong>Locus Iste</strong> celebra la sacralità della chiesa con armonie imponenti. Segue la preghiera contemporanea di Ola Gjeilo (<strong>Ubi Caritas</strong>), che unisce la tradizione antica a tessiture sonore vicine alla sensibilità moderna.</p>
+        </section>
+
+        <section class="page-section">
+            <h2>Contemporaneo e Tradizione</h2>
+            <p>Il finale del programma rompe gli schemi: la celebre <strong>Lullaby</strong> di Billy Joel mostra il lato più intimo del pop arrangiato per coro, seguita dal ritmo trascinante del canto siciliano <strong>Abballati</strong>. Il concerto culmina nella grandiosità spirituale del gospel <strong>Total Praise</strong>.</p>
+        </section>
+
+        <section class="page-section">
+            <h2>I Protagonisti</h2>
+            <div class="singers-grid">
+                <div>Alexandra Vaccaro</div>
+                <div>Alfredo Tramezzani</div>
+                <div>Antonio Augliera</div>
+                <div>Aurora Netti</div>
+                <div>Bianca Corsi</div>
+                <div>Elisa Bonomo</div>
+                <div>Fabian Gutierrez</div>
+                <div>Fiorina Lee</div>
+                <div>Francesca Granata</div>
+                <div>Francesco Bernardini</div>
+                <div>Giulia Infantino</div>
+                <div>Irene Taddei</div>
+                <div>Marco Klesyk</div>
+                <div>Rosario Fazzone</div>
+                <div>Sebastiano Licitra</div>
+                <div>Simone Isé</div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <h2>La Cornice</h2>
+            <h3>Chiesa S. Sofia, Sortino</h3>
+            <p>Splendido esempio di barocco siciliano, la Chiesa di Santa Sofia offre una cornice acustica senza pari. Le sue alte volte amplificano la risonanza delle voci, avvolgendo lo spettatore in un abbraccio sonoro unico.</p>
+        </section>
+
+        <section class="page-section" style="background-color: rgba(197, 160, 89, 0.05);">
+            <div class="quote">
+                "La musica corale è l'unica forma di armonia in cui le differenze non si combattono, ma si fondono."
+            </div>
+        </section>
+
+        <section class="page-section">
+            <h2>Grazie</h2>
+            <p style="text-align: center;">Si ringraziano il Comune di Sortino, la Parrocchia di Santa Sofia e tutti i sostenitori che hanno reso possibile questo evento.</p>
+            
+            <div class="footer-info">
+                <p><strong>CORO DEI CAVALIERI</strong></p>
+                <p>www.corodeicavalieri.it</p>
+                <p>info@corodeicavalieri.it</p>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
